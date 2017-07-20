@@ -11,7 +11,7 @@ set :port, '5566'
 set :root, File.dirname(__FILE__)
 
 # 數據庫設定
-set :database, "sqlite3:err_log.sqlite3"
+set :database, "sqlite3:db.sqlite3"
 
 # rake files
 set :tasks_path, "/tasks"
