@@ -2,6 +2,7 @@ source "http://rubygems.org"
 gem "sinatra"
 gem "sinatra-activerecord"
 gem "sinatra-namespace"
+gem 'sinatra-cross_origin'
 gem "rake"
 gem "sqlite3"
 gem "json"
