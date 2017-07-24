@@ -28,6 +28,19 @@ class ErrMonitor < Sinatra::Base
         result.to_json
       end
 
+      post '/messages/clear_all' do
+        result = {}
+        messages = @service.messages
+        begin 
+          messages.update_all(is_delete: true) 
+          result = {success: true, msg: 'clear all success'}
+          result['service_id'] = @service.id
+        rescue
+          result = {success: false, msg: 'clear all  fail'}
+        end
+        result.to_json
+      end
+
       put '/messages/:message_id/delete' do
         result = {}
         message = @service.messages.select {|msg| msg.id == params[:message_id].to_i && msg.is_delete == false}.first
