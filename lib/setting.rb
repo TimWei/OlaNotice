@@ -12,7 +12,7 @@ class ErrMonitor < Sinatra::Base
   set :root, File.dirname(__FILE__)
 
   # 數據庫設定
-  set :database, "sqlite3:db.sqlite3"
+  set :database, {adapter: "sqlite3", database: "db.sqlite3"}
 
   # rake files
   set :tasks_path, "/tasks"
