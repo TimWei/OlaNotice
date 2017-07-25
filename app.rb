@@ -12,12 +12,6 @@ $root_path = File.absolute_path('.')
 class ErrMonitor < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   register Sinatra::Namespace
-  configure do
-    enable :cross_origin
-  end
-  before do
-    response.headers['Access-Control-Allow-Origin'] = '*'
-  end
 end  
 
 

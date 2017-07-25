@@ -3,6 +3,9 @@ class ErrMonitor < Sinatra::Base
   # set :environment, :production
   set :environment, :development
 
+  # Host白名單
+  set :host_whitelist, ['localhost:9292','www.google.com']
+  
   # server設定
   # set :bind, '0.0.0.0'
   set :bind, 'localhost'
@@ -19,4 +22,12 @@ class ErrMonitor < Sinatra::Base
 
   # 版本
   set :version, '0.0.1'
+  
+  # CORS
+  configure do
+    enable :cross_origin
+  end
+  before do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+  end
 end
